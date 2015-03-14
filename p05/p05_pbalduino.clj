@@ -1,4 +1,4 @@
-(ns foo
+(ns p05-pbalduino
   (:refer-clojure :exclude [reverse]))
 
 ; P05 (*) Reverse a list.
