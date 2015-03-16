@@ -7,7 +7,7 @@
 
 (defn my-but-last [coll]
   (let [cdrcdr (next (next coll))]
-    (if-not cdrcdr
+    (if (not cdrcdr)
       coll
       (recur cdrcdr))))
 
