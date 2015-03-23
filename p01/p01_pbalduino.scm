@@ -8,8 +8,8 @@
 (define my-last
   (lambda (coll)
     (cond
-      [(eq? coll null) null]
-      [(eq? (cdr coll) null) (car coll)]
+      [(null? coll) null]
+      [(null? (cdr coll)) (car coll)]
       [else (my-last (cdr coll))])))
 
 (my-last null)
