@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ## Ninety-Nine Lisp Problems
 
 ### What is it
