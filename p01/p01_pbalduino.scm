@@ -5,23 +5,22 @@
 ; * (my-last '(a b c d))
 ; (D)
 
-(define my-cdr 
-  (lambda (coll)
-    (if (null? coll)
-        null
-        (cdr coll))))
+(define my-safe
+  (lambda (fun)
+    (lambda (coll)
+      (if (null? coll)
+          null
+          (fun coll)))))
 
-(define my-car 
-  (lambda (coll)
-    (if (null? coll)
-        null
-        (car coll))))
+(define my-car (my-safe car))
+
+(define my-cdr (my-safe cdr))
 
 (define my-last
   (lambda (coll)
-    (cond
-      [(null? (my-cdr coll)) (my-car coll)]
-      [else (my-last (cdr coll))])))
+    (if (null? (my-cdr coll))
+        (my-car coll)
+        (my-last (my-cdr coll)))))
 
 (my-last null)
 (my-last '())
